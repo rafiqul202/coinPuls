@@ -19,7 +19,6 @@ const DataTable = <T,>({
   bodyRowClassName,
   bodyCellClassName,
 }: DataTableProps<T>) => {
-  console.log(data);
   return (
     <Table className={cn("custom-scrollbar", tableClassName)}>
       <TableCaption>A list of your recent invoices.</TableCaption>
