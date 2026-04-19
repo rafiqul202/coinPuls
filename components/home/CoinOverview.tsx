@@ -4,7 +4,6 @@ import Image from "next/image";
 import CandlestickChart from "../CandlestickChart";
 
 const CoinOverview = async () => {
-  const api = process.env.COINGECKO_API_KEY;
   let coin;
   let coinOHLCData;
   try {
