@@ -28,7 +28,7 @@ const DataTable = <T,>({
             <TableHead
               key={i}
               className={cn(
-                "bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5",
+                "bg-dark-400 text-purple-100 py-4 first:pl-5 last:pr-5",headerCellClassName,column.headClassName
               )}
             >
               {column.header}
@@ -39,7 +39,7 @@ const DataTable = <T,>({
       <TableBody>
         {data?.map((row, rowIndex) => (
           <TableRow
-            key={rowIndex}
+            key={rowKey(row, rowIndex)}
             className={cn(
               "overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative",
               bodyRowClassName,
@@ -48,7 +48,7 @@ const DataTable = <T,>({
             {columns.map((column, index) => (
               <TableCell
                 key={index}
-                className={cn("py-4 first:pl-5 last:pr-5")}
+                className={cn("py-4 first:pl-5 last:pr-5",bodyCellClassName,column.cellClassName)}
               >
                 {column.cell(row, rowIndex)}
               </TableCell>
