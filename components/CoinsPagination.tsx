@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Pagination,
   PaginationContent,
@@ -10,23 +11,31 @@ import {
 } from "@/components/ui/pagination";
 import { buildPageNumbers, cn, ELLIPSIS } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+
+interface CoinsPaginationProps {
+  currentPage: number;
+  totalPages: number;
+  hasMorePages: boolean;
+}
+
 const CoinsPagination = ({
   currentPage,
   totalPages,
   hasMorePages,
-}: Pagination) => {
+}: CoinsPaginationProps) => {
   const router = useRouter();
 
   const handlePageChange = (page: number) => {
     router.push(`/coins?page=${page}`);
   };
+
   const pageNumbers = buildPageNumbers(currentPage, totalPages);
   const isLastPage = !hasMorePages || currentPage === totalPages;
 
   return (
     <Pagination id="coins-pagination">
       <PaginationContent className="pagination-content">
-        <PaginationItem className="pagination-content prev">
+        <PaginationItem className="pagination-control prev">
           <PaginationPrevious
             onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
             className={
@@ -34,12 +43,11 @@ const CoinsPagination = ({
             }
           />
         </PaginationItem>
-
         <div className="pagination-pages">
           {pageNumbers.map((page, index) => (
             <PaginationItem key={index}>
               {page === ELLIPSIS ? (
-                <span className="ellipsis">...</span>
+                <PaginationEllipsis />
               ) : (
                 <PaginationLink
                   onClick={() => handlePageChange(page)}
@@ -54,10 +62,7 @@ const CoinsPagination = ({
           ))}
         </div>
 
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
+        <PaginationItem className="pagination-control next">
           <PaginationNext
             onClick={() => !isLastPage && handlePageChange(currentPage + 1)}
             className={isLastPage ? "control-disabled" : "control-button"}

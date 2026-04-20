@@ -10,7 +10,7 @@ const Coins = async ({ searchParams }: NextPageProps) => {
   const { page } = await searchParams;
 
   const currentPage = Number(page) || 1;
-  const perPage = 12;
+  const perPage = 10;
 
   const coinsData = await fetcher<CoinMarketData[]>("/coins/markets", {
     vs_currency: "usd",

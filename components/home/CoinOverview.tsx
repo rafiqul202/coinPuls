@@ -10,10 +10,10 @@ const CoinOverview = async () => {
     coin = await fetcher<CoinDetailsData>("/coins/bitcoin", {
       dex_pair_format: "symbol",
     });
-    coinOHLCData = await fetcher<OHLCData[]>(`coins/bitcoin/ohlc`, {
-      id: "bitcoin",
+    coinOHLCData = await fetcher<OHLCData[]>("/coins/bitcoin/ohlc", {
       vs_currency: "usd",
       days: 1,
+      precision: "full",
     });
   } catch (error) {
     console.error(error);
