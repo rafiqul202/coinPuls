@@ -7,9 +7,7 @@ import { formatCurrency } from "@/lib/utils";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";

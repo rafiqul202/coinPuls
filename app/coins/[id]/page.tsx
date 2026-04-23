@@ -71,7 +71,11 @@ const SingleCoinPage = async ({ params }: NextPageProps) => {
         </LiveDataWrapper>
       </section>
       <section className="secondary">
-        <Converter symbol={coinData?.symbol } icon={coinData?.image?.small} priceList={coinData?.market_data?.current_price} />
+        <Converter
+          symbol={coinData?.symbol}
+          icon={coinData?.image?.small}
+          priceList={coinData?.market_data?.current_price}
+        />
         <div className="details">
           <h4>Coin details</h4>
           <ul className="details-grid">
