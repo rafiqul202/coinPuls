@@ -202,7 +202,9 @@
       }
     }
   }
-
+.search{
+  @apply flex justify-center items-center gap-1 cursor-pointer
+}
   #candlestick-chart {
     @apply p-3 mt-5 rounded-lg bg-dark-500;
 

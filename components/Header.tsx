@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SearchCoin from "./SearchModal";
 
 const Header = () => {
   const pathName = usePathname();
@@ -19,12 +20,21 @@ const Header = () => {
           />
         </Link>
         <nav>
-          <Link href={"/"} className={cn("nav-link",{"is-active":pathName === "/","is-home":true})}>
+          <Link
+            href={"/"}
+            className={cn("nav-link", {
+              "is-active": pathName === "/",
+              "is-home": true,
+            })}
+          >
             Home
           </Link>
-          <p>Search Modal</p>
-          <Link href={"/coins"} className={cn("nav-link",{"is-active":pathName === "/coins"})}>
-           All Coins
+          <SearchCoin />
+          <Link
+            href={"/coins"}
+            className={cn("nav-link", { "is-active": pathName === "/coins" })}
+          >
+            All Coins
           </Link>
         </nav>
       </div>

@@ -118,3 +118,4 @@ export const buildPageNumbers = (
 
   return pages;
 };
+
